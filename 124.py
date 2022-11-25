@@ -41,7 +41,7 @@ target_datasets = [
 #     print(sys.exc_info())
 
 
-from tasks import  AutoTask
+from data.tasks import  AutoTask
 
 for dataset in target_datasets:
     try:
