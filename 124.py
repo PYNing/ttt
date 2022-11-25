@@ -1,11 +1,45 @@
-small_datasets_without_all_splits = ["cola", "wnli", "rte", "trec", "superglue-cb", "sick",
-                                     "mrpc", "stsb", "imdb", "commonsense_qa", "superglue-boolq"]
-large_data_without_all_splits = ["yelp_polarity", "qqp", "qnli",
-                                 "social_i_qa", "cosmos_qa", "winogrande", "hellaswag", "sst2"]
+import sys
 
-target_datasets = small_datasets_without_all_splits + large_data_without_all_splits
+target_datasets = [
+    'superglue-boolq',
+    'superglue-cb',
+    'superglue-rte',
+    'paws',
+    'imdb',
+    'snli',
+    'scitail',
+    'mrpc',
+    'trec',
+    'yelp_polarity',
+    'wmt16-ro-en',
+    'wmt14-hi-en',
+    'wmt16-en-ro',
+    'wmt16-ro-en',
+    'wmt16-en-cs',
+    'iwslt2017-ro-nl',
+    'iwslt2017-en-nl',
+    'cola',
+    'sst2',
+    'stsb',
+    'qqp',
+    'mnli',
+    'qnli',
+    'rte',
+    'wnli',
+    'wmt16-en-fi',
+    'social_i_qa',
+    'cosmos_qa',
+    'winogrande',
+    'hellaswag',
+    'commonsense_qa',
+    'sick'
+]
 
-from datasets import load_dataset
+try:
+    from datasets import load_dataset
+except:
+    print(sys.exc_info())
+
 
 for dataset in target_datasets:
     try:
@@ -13,4 +47,5 @@ for dataset in target_datasets:
         load_dataset(dataset, script_version="master")
         print(dataset + " download done")
     except:
+        print(sys.exc_info())
         print("download " + dataset + " failed")
