@@ -41,7 +41,7 @@ target_datasets = [
 #     print(sys.exc_info())
 
 
-from data.tasks import  AutoTask
+from MPOE.data.tasks import  AutoTask
 
 for dataset in target_datasets:
     try:
