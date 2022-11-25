@@ -35,16 +35,18 @@ target_datasets = [
     'sick'
 ]
 
-try:
-    from datasets import load_dataset
-except:
-    print(sys.exc_info())
+# try:
+#     from datasets import load_dataset
+# except:
+#     print(sys.exc_info())
 
+
+from tasks import  AutoTask
 
 for dataset in target_datasets:
     try:
         print("downloading " + dataset)
-        load_dataset(dataset, script_version="master")
+        AutoTask.get(dataset)
         print(dataset + " download done")
     except:
         print(sys.exc_info())
