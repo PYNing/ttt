@@ -8,6 +8,9 @@ target_datasets = small_datasets_without_all_splits + large_data_without_all_spl
 from datasets import load_dataset
 
 for dataset in target_datasets:
-    print("downloading" + dataset)
-    load_dataset(dataset)
-    print(dataset + "download done")
+    try:
+        print("downloading " + dataset)
+        load_dataset(dataset, script_version="master")
+        print(dataset + " download done")
+    except:
+        print("download " + dataset + " failed")
