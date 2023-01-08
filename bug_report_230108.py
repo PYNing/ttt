@@ -40,6 +40,8 @@ class Graph(nn.Graph):
     def __init__(self, ):
         super().__init__()
         self.model = model
+        # 打开了省内存选项
+        self.config.enable_compress_memory(True)
 
     def build(self, x):
         y = self.model(x)
