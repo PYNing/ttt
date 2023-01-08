@@ -1,7 +1,5 @@
 import oneflow as flow
-import numpy as np
 import oneflow.nn as nn
-from oneflow.one_embedding import make_persistent_table_writer
 
 class Model(nn.Module):
     def __init__(self):
